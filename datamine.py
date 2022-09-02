@@ -34,19 +34,19 @@ for x in range(1,2000):
     final_url = req_url_part1+str(x)+req_url_part2
     krjson = final_url
     krcek = requests.get(krjson)
-    kodrehberi = json.loads(krcek.text)
+    jsonreq = json.loads(krcek.text)
     
     for y in range(10):
     
-        data["seq"].append(kodrehberi.get("data")["lists"][y]["info"]["seq"])
-        data["transportID"].append(kodrehberi.get("data")["lists"][y]["info"]["transportID"])
-        data["nftID"].append(kodrehberi.get("data")["lists"][y]["info"]["nftID"])
-        data["price"].append(kodrehberi.get("data")["lists"][y]["info"]["price"])
-        data["powerScore"].append(kodrehberi.get("data")["lists"][y]["info"]["powerScore"])
-        data["level"].append(kodrehberi.get("data")["lists"][y]["info"]["lv"])
-        data["class"].append(kodrehberi.get("data")["lists"][y]["info"]["class"])
-        data["time"].append(datetime.datetime.fromtimestamp(kodrehberi.get("data")["lists"][y]["info"]["tradeDT"]).strftime('%Y-%m-%d'))
-        data["timeUnix"].append(kodrehberi.get("data")["lists"][y]["info"]["tradeDT"])
+        data["seq"].append(jsonreq.get("data")["lists"][y]["info"]["seq"])
+        data["transportID"].append(jsonreq.get("data")["lists"][y]["info"]["transportID"])
+        data["nftID"].append(jsonreq.get("data")["lists"][y]["info"]["nftID"])
+        data["price"].append(jsonreq.get("data")["lists"][y]["info"]["price"])
+        data["powerScore"].append(jsonreq.get("data")["lists"][y]["info"]["powerScore"])
+        data["level"].append(jsonreq.get("data")["lists"][y]["info"]["lv"])
+        data["class"].append(jsonreq.get("data")["lists"][y]["info"]["class"])
+        data["time"].append(datetime.datetime.fromtimestamp(jsonreq.get("data")["lists"][y]["info"]["tradeDT"]).strftime('%Y-%m-%d'))
+        data["timeUnix"].append(jsonreq.get("data")["lists"][y]["info"]["tradeDT"])
         
         
 
